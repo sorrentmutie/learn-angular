@@ -1,0 +1,33 @@
+<p>products-list works!</p>
+
+<div *ngIf="products; else noProducts">
+    <p>Numero totale di prodotti: {{products.length}}</p>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Prezzo</th>
+                <th>Data di rilascio</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products">
+           <td>{{product.id}}</td>
+           <td>{{product | product | uppercase}}</td>
+           <td>{{product.price | currency: "EUR"}}</td>
+           <td>{{product.releaseDate | date: "dd/MM/yyyy"}}</td>
+           <td><img alt ="" src="{{product.image}}"></td>
+        </tr> 
+        </tbody>
+    </table> 
+
+
+
+</div>
+
+<ng-template #noProducts>
+    <p>Non ci sono prodotti in catalogo</p>
+</ng-template>
