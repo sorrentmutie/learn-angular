@@ -1,0 +1,13 @@
+<h3> Prodotti in catalogo: {{productsData.getRandomNumber()}}</h3>
+
+<div *ngIf="!selectedProduct; else showDetails">
+    <app-products-list [products]="availableProducts" (emitter)="showAvailableDetails($event)"></app-products-list>
+</div>
+
+<ng-template #showDetails>
+    <app-product-details (emitter)="goBack($event)" [product]="selectedProduct"></app-product-details>
+</ng-template>
+
+
+
+<app-products-list [products]="notAvailableProducts" (emitter)="showNotAvailableDetails($event)"></app-products-list>

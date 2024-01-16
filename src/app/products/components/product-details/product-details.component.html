@@ -1,0 +1,8 @@
+<p>product-details works!</p>
+<p>{{product?.name}}</p>
+
+<div *ngIf="product">
+    <input [(ngModel)]="product.name">
+</div>
+
+<button (click)="goBack()">Indietro</button>

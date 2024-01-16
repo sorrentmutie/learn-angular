@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../models/product';
 
 @Component({
@@ -7,20 +7,10 @@ import { Product } from '../../models/product';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent {
-    products: Product[] | undefined = undefined;
+  @Input()  products: Product[] | undefined = undefined;
+  @Output() emitter = new EventEmitter<Product>();
 
-    constructor(){
-      this.products = this.getProducts();
-    }
-
-   getProducts() : Product[]{
-      return [
-        { id: 1, name: "Frigorifero", price: 1000, releaseDate: new Date(), 
-        image: "https://cdn.freebiesupply.com/logos/large/2x/angular-icon-logo-png-transparent.png"},
-        { id: 2, name: "Forno a microonde", price: 300, releaseDate: new Date(), 
-        image: "https://cdn.freebiesupply.com/logos/large/2x/angular-icon-logo-png-transparent.png"}
-
-      ];
-   }
-
+  showDetails(selectedProduct: Product) {
+    this.emitter.emit(selectedProduct);
+  } 
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductsData } from '../products/services/products-data';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
    footerTitle: string = "Footer title";
+   productsData = new ProductsData();
+
 }

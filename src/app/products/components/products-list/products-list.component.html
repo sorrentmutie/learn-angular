@@ -1,5 +1,3 @@
-<p>products-list works!</p>
-
 <div *ngIf="products; else noProducts">
     <p>Numero totale di prodotti: {{products.length}}</p>
 
@@ -11,6 +9,7 @@
                 <th>Prezzo</th>
                 <th>Data di rilascio</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +19,7 @@
            <td>{{product.price | currency: "EUR"}}</td>
            <td>{{product.releaseDate | date: "dd/MM/yyyy"}}</td>
            <td><img alt ="" src="{{product.image}}"></td>
+           <td><button (click)="showDetails(product)" class="btn btn-info">Dettagli</button></td>
         </tr> 
         </tbody>
     </table> 
