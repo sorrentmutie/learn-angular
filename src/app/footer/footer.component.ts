@@ -9,5 +9,4 @@ import { ProductsData } from '../products/services/products-data';
 export class FooterComponent {
    footerTitle: string = "Footer title";
    productsData = new ProductsData();
-
 }
