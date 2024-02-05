@@ -5,6 +5,25 @@
         <div class="form-group">
             <label for="name">Nome</label>
             <input class="form-control" id="name" formControlName="name">
+
+            <div *ngIf="!myName?.valid && (myName?.dirty || myName?.touched)">
+            
+               <div class="alert alert-danger" *ngIf="myName && myName.errors && myName.errors['required']">
+                  Il nome è obbligatorio
+              </div>
+
+              <div class="alert alert-danger" *ngIf="myName && myName.errors && myName.errors['minlength']">
+                La lunghezza minima è 5
+              </div>
+
+              <div class="alert alert-danger" *ngIf="myName && myName.errors && myName.errors['myValidator']">
+                Il nome deve cominciare con la S
+            </div>
+
+
+            </div>
+
+
         </div>
         <button [disabled]="myForm.invalid" type="submit">OK</button>
     </form>

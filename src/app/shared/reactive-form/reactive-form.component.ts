@@ -20,7 +20,6 @@ export class ReactiveFormComponent {
     submit() {
     }
     
-    // rièrendi da 
     get myName() {return this.myForm?.get("name");}
 
 
