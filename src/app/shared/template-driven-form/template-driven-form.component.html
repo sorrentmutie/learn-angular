@@ -1,0 +1,35 @@
+<form (ngSubmit)="submit()" #myForm="ngForm" >
+
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" 
+           [(ngModel)]="user.id"
+           id="id" name="id" class="form-control" >
+    </div>
+
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" 
+        [(ngModel)]="user.name"  #myName="ngModel" required minlength="5"
+        id="name" name="name" class="form-control">
+
+        <div [hidden]="myName.valid || myName.pristine" class="alert alert-danger">
+            Il nome è obbligatorio
+        </div>
+
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="role">Ruolo</label>
+        <select class="form-control" id="role" name="role">
+            <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+        </select>
+    </div>
+
+
+     <button [disabled]="!myForm.valid" style="margin-top: 10px;" class="btn btn-info" type="submit">OK</button>
+ 
+
+</form>

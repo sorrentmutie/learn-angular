@@ -1,0 +1,10 @@
+<p>random-user-page works!</p>
+
+<div *ngFor="let result of results | async">
+   <app-person-card [person]="result"></app-person-card>
+</div>
+
+
+<ng-template #loading>
+    <div class="spinner-border"></div>
+</ng-template>

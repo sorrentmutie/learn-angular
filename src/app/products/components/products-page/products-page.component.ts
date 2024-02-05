@@ -11,9 +11,9 @@ export class ProductsPageComponent {
    availableProducts: Product[] | undefined = undefined;
    notAvailableProducts: Product[] | undefined = undefined;
    selectedProduct: Product | undefined = undefined;
-   productsData = new ProductsData();
+   // productsData = new ProductsData();
 
-   constructor() {
+   constructor(public productsData: ProductsData) {
    this.availableProducts = this.productsData.getProducts();
    this.notAvailableProducts = this.productsData.getNotAvailableProducts();
    }
